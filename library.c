@@ -4,7 +4,6 @@ for CS1550 project 1
 2/4/17 (i got a pretty late start)
 ****************************************/
 
-#include "iso_font.h"
 //needed for nanosleep	
 #include <time.h>
 //needed for terminal ioctl
@@ -113,7 +112,7 @@ char getkey(void){
 		throw_error("turds");
 	else if(ret){
 		read(STDIN_FILENO, &c, 1);
-		return c; 
+		return c;
 	}else{
 		return '\0';
 	}
