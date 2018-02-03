@@ -12,25 +12,10 @@ compiles with: gcc -o name drv.c library.c
 
 typedef unsigned short color_t;
 
-color_t color_inc(){
-	static color_t color;
-	static int i;
-	if(i%6==1)
-		color=0xf800;
-	else if(i%6==2)
-		color=0x001f;
-	else if(i%6==3)
-		color=0x07e0;
-	else if(i%6==4)
-		color=0xf81f;
-	else if(i%6==5)
-		color=0xffe0;
-	else
-		color=0x3a0b;
-	i++;
-	return color;
-}
+void draw_serpent(char new_dir){
+	static char dir = 'd';
 
+}
 
 int main(int argc, char** argv){
 	int i,j,k;
@@ -38,7 +23,9 @@ int main(int argc, char** argv){
 	char c,str[2];
 	init_graphics();
 	clear_screen();
-	draw_rect(10,10,20,10,WHITE);
-	while(getkey() != 'q');
+	draw_circle(100,100,50,GYB);
+	while(getkey() != 'q'){
+
+	}
 	exit_graphics();
 }

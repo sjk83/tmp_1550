@@ -126,3 +126,38 @@ void draw_rect(int x,int y,int w,int h, color_t color){
 	for(i=0;i<h*w;i++)
 		draw_pixel(x+i%w,y+i/w,color);
 }
+
+void draw_circle(int x0, int y0, int radius, color_t color)
+{
+    int x = radius-1;
+    int y = 0;
+    int dx = 1;
+    int dy = 1;
+    int err = dx - (radius << 1);
+
+    while (x >= y)
+    {
+        draw_pixel(x0 + x, y0 + y,color);
+        draw_pixel(x0 + y, y0 + x,color);
+        draw_pixel(x0 - y, y0 + x,color);
+        draw_pixel(x0 - x, y0 + y,color);
+        draw_pixel(x0 - x, y0 - y,color);
+        draw_pixel(x0 - y, y0 - x,color);
+        draw_pixel(x0 + y, y0 - x,color);
+        draw_pixel(x0 + x, y0 - y,color);
+
+        if (err <= 0)
+        {
+            y++;
+            err += dy;
+            dy += 2;
+        }
+
+        if (err > 0)
+        {
+            x--;
+            dx += 2;
+            err += dx - (radius << 1);
+        }
+    }
+}
