@@ -4,7 +4,7 @@ for CS1550 project 1
 2/4/17 (i got a pretty late start)
 ****************************************/
 
-//needed for nanosleep	
+//needed for nanosleep
 #include <time.h>
 //needed for terminal ioctl
 #include <termios.h>
@@ -128,7 +128,7 @@ void draw_rect(int x,int y,int w,int h, color_t color){
 		draw_pixel(x+i%w,y+i/w,color);
 }
 
-void draw_text(int x,int y,const char *text, color_t color){
+/*void draw_text(int x,int y,const char *text, color_t color){
 	int i=0,j,k,offset,xnew=x,ynew;
 	unsigned char curr_byte;
 	while(text[i]!='\0'){
@@ -149,4 +149,4 @@ void draw_text(int x,int y,const char *text, color_t color){
 		xnew+=8;
 	}
 
-}
+}*/
