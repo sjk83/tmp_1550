@@ -1,7 +1,6 @@
 /***************************************
 Written by stephen klein
-for CS1550 project 1
-2/4/17 (i got a pretty late start)
+for CS/COE 1550 project 1
 ****************************************/
 
 //needed for nanosleep
@@ -10,7 +9,7 @@ for CS1550 project 1
 #include <termios.h>
 #include <sys/ioctl.h>
 //ONLY HERE FOR DEBUGGING
-#include <stdio.h>
+//#include <stdio.h>
 //posix stuffs
 #include <unistd.h>
 //includes for open/close
@@ -127,26 +126,3 @@ void draw_rect(int x,int y,int w,int h, color_t color){
 	for(i=0;i<h*w;i++)
 		draw_pixel(x+i%w,y+i/w,color);
 }
-
-/*void draw_text(int x,int y,const char *text, color_t color){
-	int i=0,j,k,offset,xnew=x,ynew;
-	unsigned char curr_byte;
-	while(text[i]!='\0'){
-		offset=text[i]*16;
-		ynew=y;
-		for(j=0;j<16;j++){//y axis loop
-			curr_byte=iso_font[offset+j];
-			for(k=0;k<8;k++){//x axis loop
-				if(curr_byte&0x01)
-					draw_pixel(xnew,ynew,color);
-				curr_byte>>=1;
-				xnew++;
-			}
-			ynew++;
-			xnew-=8;
-		}
-		i++;
-		xnew+=8;
-	}
-
-}*/
