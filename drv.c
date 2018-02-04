@@ -36,26 +36,28 @@ color_t color_inc(){
 int main(int argc, char** argv){
 	char c;
 	int c_or_r = 0;
-	int x=100,y=100,l=10,w=10,r=10;
+	int x=100,y=100,l=20,w=20,r=10;
 	int skip_flag = 0;
 
-	puts("press q to exit my stupid driver thing.");
+	puts("\n\n\npress q to exit my stupid driver thing.");
 	puts("c draws circles, r draws rectangles.");
 	puts("a,s,w,d moves where the thing gets drawn.");
 	puts("+ makes things bigger, - makes things smaller");
-	puts("press b then enter to begin");
-
+	sleep_ms(1000*5);
+	puts("\n\npress b then enter to begin");
 	while(getkey()!='b');
+
 	init_graphics();
 	clear_screen();
-	c = 0;
+	c = 'r';
+
 	while(c != 'q'){
 		skip_flag = 0;
 		switch (c) {
 			case 'c': c_or_r = 1;break;
 			case 'r': c_or_r = 0;break;
-			case '+': r++; l++; w++; break;
-			case '-': r--; l--; w--; break;
+			case '+': r++; l+=2; w++; break;
+			case '-': r--; l-=2; w-=2; break;
 			case 'a': x--; break;
 			case 's': y++; break;
 			case 'w': y--; break;
@@ -73,5 +75,6 @@ int main(int argc, char** argv){
 		sleep_ms(1);
 		c = getkey();
 	}
+	
 	exit_graphics();
 }
