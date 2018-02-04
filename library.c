@@ -128,7 +128,7 @@ void draw_rect(int x,int y,int w,int h, color_t color){
 }
 
 void draw_circle(int x0, int y0, int radius, color_t color)
-{
+
     int x = radius-1;
     int y = 0;
     int dx = 1;
