@@ -34,7 +34,7 @@ color_t color_inc(){
 }
 
 int main(int argc, char** argv){
-	char c;
+	char c,last_c;
 	int c_or_r = 0;
 	int x=100,y=100,l=20,w=20,r=10;
 	int skip_flag = 0;
@@ -53,6 +53,8 @@ int main(int argc, char** argv){
 
 	while(c != 'q'){
 		skip_flag = 0;
+		if(c ==0 )
+			c = last_c;
 		switch (c) {
 			case 'c': c_or_r = 1;break;
 			case 'r': c_or_r = 0;break;
@@ -62,7 +64,7 @@ int main(int argc, char** argv){
 			case 's': y++; break;
 			case 'w': y--; break;
 			case 'd': x++; break;
-			default: skip_flag = 1; break;
+			default: skip_flag = 1;	last_c = c; break;
 		}
 		if(!skip_flag){
 		clear_screen();
@@ -75,6 +77,6 @@ int main(int argc, char** argv){
 		sleep_ms(1);
 		c = getkey();
 	}
-	
+
 	exit_graphics();
 }
