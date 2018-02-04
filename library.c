@@ -160,5 +160,5 @@ void draw_circle(int x0, int y0, int radius, color_t color)
             err += dx - (radius << 1);
         }
     }
-		draw_circle(x0,y0,radius - 1, color);
+
 }
