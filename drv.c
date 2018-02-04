@@ -69,7 +69,7 @@ int main(int argc, char** argv){
 		}else{
 			draw_rect(x,y,l,w,color_inc());
 		}
-		sleep_ms(1);
+		sleep_ms(50);
 		c = getkey();
 	}
 
