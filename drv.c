@@ -34,10 +34,9 @@ color_t color_inc(){
 }
 
 int main(int argc, char** argv){
-	char c,last_c;
+	char c;
 	int c_or_r = 0;
 	int x=100,y=100,l=20,w=20,r=10;
-	int skip_flag = 0;
 
 	puts("\n\n\npress q to exit my stupid driver thing.");
 	puts("c draws circles, r draws rectangles.");
@@ -52,31 +51,27 @@ int main(int argc, char** argv){
 	c = 'r';
 
 	while(c != 'q'){
-		skip_flag = 0;
-		if(c ==0 )
-			c = last_c;
-		switch (c) {
-			case 'c': c_or_r = 1;break;
-			case 'r': c_or_r = 0;break;
-			case '+': r++; l+=2; w++; break;
-			case '-': r--; l-=2; w-=2; break;
-			case 'a': x--; break;
-			case 's': y++; break;
-			case 'w': y--; break;
-			case 'd': x++; break;
-			default: skip_flag = 1;	last_c = c; break;
-		}
-		if(!skip_flag){
-		clear_screen();
-			if(c_or_r){
-				draw_circle(x,y,r,color_inc());
-			}else{
-				draw_rect(x,y,l,w,color_inc());
-			}
-		}
-		sleep_ms(1);
-		c = getkey();
+
+	switch (c) {
+		case 'c': c_or_r = 1;break;
+		case 'r': c_or_r = 0;break;
+		case '+': r++; l+=2; w++; break;
+		case '-': r--; l-=2; w-=2; break;
+		case 'a': x--; break;
+		case 's': y++; break;
+		case 'w': y--; break;
+		case 'd': x++; break;
+		default:  break;
 	}
+  clear_screen();
+		if(c_or_r){
+			draw_circle(x,y,r,color_inc());
+		}else{
+			draw_rect(x,y,l,w,color_inc());
+		}
+	}
+	sleep_ms(1);
+	c = getkey();
 
 	exit_graphics();
 }
