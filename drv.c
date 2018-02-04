@@ -36,7 +36,7 @@ color_t color_inc(){
 int main(int argc, char** argv){
 	char c;
 	int c_or_r = 0;
-	int x,y,l,w,r;
+	int x=10,y=10,l=5,w=5,r=5;
 	int skip_flag = 0;
 	puts("press q to exit my stupid driver thing.");
 	puts("c draws circles, r draws rectangles.");
@@ -66,7 +66,6 @@ int main(int argc, char** argv){
 			}else{
 				draw_rect(x,y,l,w,color_inc);
 			}
-			skip_flag = 1;
 		}
 		sleep_ms(100);
 		c = getkey();
