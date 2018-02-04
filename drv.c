@@ -42,6 +42,8 @@ int main(int argc, char** argv){
 	puts("c draws circles, r draws rectangles.");
 	puts("a,s,w,d moves where the thing gets drawn.");
 	puts("+ makes things bigger, - makes things smaller");
+	puts("press b to begin");
+	while(getkey!='b');
 	init_graphics();
 	clear_screen();
 	//draw_circle(100,100,50,GYB);
