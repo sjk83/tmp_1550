@@ -52,26 +52,26 @@ int main(int argc, char** argv){
 
 	while(c != 'q'){
 
-	switch (c) {
-		case 'c': c_or_r = 1;break;
-		case 'r': c_or_r = 0;break;
-		case '+': r++; l+=2; w++; break;
-		case '-': r--; l-=2; w-=2; break;
-		case 'a': x--; break;
-		case 's': y++; break;
-		case 'w': y--; break;
-		case 'd': x++; break;
-		default:  break;
-	}
-  clear_screen();
+		switch (c) {
+			case 'c': c_or_r = 1;break;
+			case 'r': c_or_r = 0;break;
+			case '+': r++; l+=2; w++; break;
+			case '-': r--; l-=2; w-=2; break;
+			case 'a': x--; break;
+			case 's': y++; break;
+			case 'w': y--; break;
+			case 'd': x++; break;
+			default:  break;
+		}
+	  clear_screen();
 		if(c_or_r){
 			draw_circle(x,y,r,color_inc());
 		}else{
 			draw_rect(x,y,l,w,color_inc());
 		}
+		sleep_ms(1);
+		c = getkey();
 	}
-	sleep_ms(1);
-	c = getkey();
 
 	exit_graphics();
 }
