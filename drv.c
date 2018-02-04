@@ -36,17 +36,18 @@ color_t color_inc(){
 int main(int argc, char** argv){
 	char c;
 	int c_or_r = 0;
-	int x=10,y=10,l=5,w=5,r=5;
+	int x=100,y=100,l=10,w=10,r=10;
 	int skip_flag = 0;
+
 	puts("press q to exit my stupid driver thing.");
 	puts("c draws circles, r draws rectangles.");
 	puts("a,s,w,d moves where the thing gets drawn.");
 	puts("+ makes things bigger, - makes things smaller");
-	puts("press b to begin");
-	while(getkey!='b');
+	puts("press b then enter to begin");
+
+	while(getkey()!='b');
 	init_graphics();
 	clear_screen();
-	//draw_circle(100,100,50,GYB);
 	c = 0;
 	while(c != 'q'){
 		skip_flag = 0;
@@ -66,10 +67,10 @@ int main(int argc, char** argv){
 			if(c_or_r){
 				draw_circle(x,y,r,color_inc());
 			}else{
-				draw_rect(x,y,l,w,color_inc);
+				draw_rect(x,y,l,w,color_inc());
 			}
 		}
-		sleep_ms(100);
+		sleep_ms(1);
 		c = getkey();
 	}
 	exit_graphics();
