@@ -55,17 +55,17 @@ int main(int argc, char** argv){
 		switch (c) {
 			case 'c': c_or_r = 1;break;
 			case 'r': c_or_r = 0;break;
-			case '+': r++; l+=2; w++; break;
+			case '+': r++; l+=2; w+=2; break;
 			case '-': r--; l-=2; w-=2; break;
-			case 'a': x--; break;
-			case 's': y++; break;
-			case 'w': y--; break;
-			case 'd': x++; break;
+			case 'a': x-=2; break;
+			case 's': y+=2; break;
+			case 'w': y-=2; break;
+			case 'd': x+=2; break;
 			default:  break;
 		}
 	  clear_screen();
 		if(c_or_r){
-			draw_circle(x,y,r,color_inc());
+			draw_circle(x+w/2,y+w/2,r,color_inc());
 		}else{
 			draw_rect(x,y,l,w,color_inc());
 		}
